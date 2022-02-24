@@ -12,25 +12,23 @@ $(document).ready(function() {
         }, 1000);
     });
 });
-function init(){
-    let map = new ymaps.Map('map', {
-        center: [59.92713006420545,30.374860499999965],
+function initMap() {
+    const location = {
+        lat: 59.92713006420545,
+        lng: 30.374860499999965
+    };
+    const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 17,
-    })
-    let placemark = new ymaps.Placemark([59.92713006420545,30.374860499999965], {}, {
-
-    })
-
-    map.controls.remove('geolocationControl'); // удаляем геолокацию
-    map.controls.remove('searchControl'); // удаляем поиск
-    map.controls.remove('trafficControl'); // удаляем контроль трафика
-    map.controls.remove('typeSelector'); // удаляем тип
-    map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-    map.controls.remove('zoomControl'); // удаляем контрол зуммирования
-    map.controls.remove('rulerControl'); // удаляем контрол правил
-    map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опциональн
-
-    map.geoObjects.add(placemark);
-}
-
-ymaps.ready(init)
+        center: location,
+        mapId: 'MAP_ID',
+        disableDefaultUI: true,
+        zoomControl: false,
+        scaleControl: true,
+    });
+    const contentString = '<div class="map__content">' + '<h1 class="map__title title">Movee</h1>' + '<div class="map__info">' + '<p class="map__item basic__18px">Москва, Волгоградский пр-т, 38</p>' + '<p class="map__item basic__18px">8 (800)-080-12-13</p>' + '<p class="map__item mail basic__18px">' + '<ins>' + 'hello@movee.ru' + '</ins>' + '</p>' + '</div>' + '<div class="map__social-network">' + '<a href="" class="map__social social" aria-label="youtube"></a>' + '<a href="" class="map__social social" aria-label="vkontakte"></a>' + '<a href="" class="map__social social" aria-label="facebook"></a>' + '<a href="" class="map__social social" aria-label="instagram"></a>' + '</div>' + '</div>';
+    const marker = new google.maps.Marker({
+        position: location,
+        map,
+        title: "test",
+    });
+};
