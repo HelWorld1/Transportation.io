@@ -146,10 +146,10 @@ button
 		&:hover
 			color: $second-color
 			transition: 200ms
-		& svg
+		& .location
 			margin-right: 10px
 			fill: #fff
-		&:hover svg
+		&:hover .location
 			fill: currentColor
 			transition: 200ms
 	&__burger
@@ -254,10 +254,11 @@ button
 		transition: 200ms
 		&:hover
 			color: $second-color
-		& svg
+		& .arrow
 			fill: #fff
-		&:hover svg
+		&:hover .arrow
 			fill: currentColor
+			transition: 200ms
 		&:last-child
 			& svg
 				transform: rotate(180deg)
@@ -287,6 +288,7 @@ button
 		background-color: $fourth-color
 		&:hover, &:focus
 			background-color: $second-color
+			transition: 200ms
 .about-company
 	margin: 0
 	padding: 0
