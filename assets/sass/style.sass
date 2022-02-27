@@ -1,22 +1,22 @@
 /* SASS */
 /* Import style */
-@import 'fontello.css'
+@import "fontello.css"
 /* Import font */
 @font-face
-	font-family: 'Roboto Regular'
-	src: url('../fonts/Roboto-Regular.woff2'), url('../fonts/Roboto-Regular.woff')
+	font-family: "Roboto Regular", "Arial", sans-serif
+	src: url("../fonts/Roboto-Regular.woff2"), url("../fonts/Roboto-Regular.woff")
 	font-weight: 400
 	font-style: normal
 	font-display: swap
 @font-face
-	font-family: 'Roboto Medium'
-	src: url('../fonts/Roboto-Medium.woff2'), url('../fonts/Roboto-Medium.woff')
+	font-family: "Roboto Medium", "Arial", sans-serif
+	src: url("../fonts/Roboto-Medium.woff2"), url("../fonts/Roboto-Medium.woff")
 	font-weight: 500
 	font-style: normal
 	font-display: swap
 @font-face
-	font-family: 'Roboto Bold'
-	src: url('../fonts/Roboto-Bold.woff2'), url('../fonts/Roboto-Bold.woff')
+	font-family: "Roboto Bold", "Arial", sans-serif
+	src: url("../fonts/Roboto-Bold.woff2"), url("../fonts/Roboto-Bold.woff")
 	font-weight: 700
 	font-style: normal
 	font-display: swap
@@ -25,7 +25,7 @@ $standard-color: #fff
 $second-color: #C8A35F
 $third-color: #2F343A
 $fourth-color: #393F47
-$sprite: url('../img/sprite.webp')
+$sprite: url("../img/sprite.webp")
 /* Basic style */
 *
 	margin: 0
@@ -34,7 +34,7 @@ $sprite: url('../img/sprite.webp')
 body
 	margin: 0
 	padding: 0
-	font-family: 'Roboto Regular'
+	font-family: "Roboto Regular", "Arial", sans-serif
 	font-weight: 400
 	color: $standard-color
 	background-color: $third-color
@@ -44,8 +44,8 @@ h1,h2,h3,h4,h5,h6
 a
 	margin: 0
 	padding: 0
-	text-decoration: none
 	color: $standard-color
+	text-decoration: none
 button
 	margin: 0
 	padding: 0
@@ -54,29 +54,33 @@ button
 	color: $standard-color
 .container
 	max-width: 1140px
-	padding: 0 15px
 	margin: 0 auto
+	padding: 0 15px
 .active
-	pointer-events: all
 	opacity: 0.5
+	pointer-events: all
 .active:hover
 	opacity: 1
-.noactive
-	pointer-events: none
+// .noactive
+// 	pointer-events: none
 .logo
 	width: 160px
 	height: 46px
+	fill: #fff
 .location
 	width: 25px
 	height: 25px
 .arrow
 	width: 67px
 	height: 24px
+.airplane
+	width: 30px
+	height: 30px
 .test
 	width: 160px
 	height: 46px
 .title
-	font-family: 'Roboto Bold'
+	font-family: "Roboto Bold", "Arial", sans-serif
 	font-size: 40px
 	line-height: 49px
 	letter-spacing: 0.05em
@@ -85,17 +89,17 @@ button
 	font-size: 18px
 	line-height: 28px
 .line
-	margin-bottom: 40px
 	max-width: 90px
 	height: 6px
+	margin-bottom: 40px
 	background: $second-color
 #map
-	margin: 0
-	padding: 0
 	width: 100%
 	min-height: 450px
-	pointer-events: none
+	margin: 0
+	padding: 0
 	opacity: 0.4
+	pointer-events: none
 /* Another style */
 .nav-panel
 	&__container
@@ -106,7 +110,15 @@ button
 		padding: 16px 15px
 		background-color: $second-color
 	&__lang
+		opacity: 0.5
+		pointer-events: all
 		text-transform: uppercase
+		&:hover
+			opacity: 1
+			transition: 200ms
+	& [aria-current="Russian"], [aria-current="English"]
+		pointer-events: none
+		opacity: 1
 	&__body
 		padding: 27px 15px
 		background-color: $third-color
@@ -120,28 +132,29 @@ button
 		gap: 30px
 		& a:hover, a:focus
 			color: #c8a35f
+			transition: 200ms
 	&__logo
 		display: inline-block
-		border-right: 1px solid $standard-color
 		padding-right: 30px
+		border-right: 1px solid $standard-color
 	&__location
 		display: flex
 		align-items: center
+		&:hover
+			color: $second-color
+			transition: 200ms
 		& svg
 			margin-right: 10px
-			& path
-				animation-duration: 200ms
-				fill: #fff
-		&:hover
-			& path
-				animation-duration: 200ms
-				fill: $second-color
+			fill: #fff
+		&:hover svg
+			fill: currentColor
+			transition: 200ms
 	&__burger
 		display: none
 		&:before
-			content: '\e801'
-			font-family: 'fontello'
+			font-family: "fontello"
 			font-size: 24px
+			content: "\e801"
 	&__link
 		text-transform: uppercase
 .home
@@ -150,7 +163,7 @@ button
 	justify-content: center
 	text-align: center
 	min-height: 620px
-	background-image: url('../img/background.webp')
+	background-image: url("../img/background.webp")
 	& .container
 		display: flex
 		justify-content: center
@@ -164,7 +177,7 @@ button
 	&__title
 		padding: 0
 		text-align: center
-		font-family: 'Roboto Bold'
+		font-family: "Roboto Bold", "Arial", sans-serif
 		font-size: 64px
 		line-height: 75px
 		letter-spacing: 0.05em
@@ -175,22 +188,22 @@ button
 	margin-bottom: 120px
 	&__background
 		position: absolute
+		z-index: 1
 		display: inline-block
 		width: 37%
 		min-height: 561px
 		background: $fourth-color
-		z-index: 1
 		&:first-child
 			left: 0
 		&:nth-child(2)
 			right: 0
 	&__slider
 		position: relative
+		z-index: 1000
 		display: flex
 		justify-content: space-between
 		align-items: center
 		min-height: 561px
-		z-index: 1000
 	&__item
 		max-width: 410px
 	&__line
@@ -203,7 +216,7 @@ button
 		margin-bottom: 50px
 	&__btn
 		padding: 15px 48px
-		font-family: 'Roboto Medium'
+		font-family: "Roboto Medium", "Arial", sans-serif
 		font-size: 16px
 		line-height: 25px
 		text-align: center
@@ -229,13 +242,13 @@ button
 		grid-template-columns: 1fr 1fr
 		align-items: center
 		gap: 31px
-		font-family: 'Roboto Medium'
+		font-family: "Roboto Medium", "Arial", sans-serif
 		font-size: 16px
 		line-height: 25px
 		letter-spacing: 0.1em
 		text-transform: uppercase
 		color: $standard-color
-		animation-duration: 200ms
+		transition: 200ms
 		&:hover
 			color: $second-color
 		& svg
@@ -247,8 +260,8 @@ button
 				transform: rotate(180deg)
 .services
 	margin: 0
-	padding: 0
 	margin-bottom: 120px
+	padding: 0
 	&__line
 	&__title
 		margin-bottom: 60px
@@ -259,13 +272,13 @@ button
 		grid-template-columns: repeat(auto-fit, minmax(276px, 1fr))
 		gap: 1px
 	&__item
-		text-align: center
+		margin: 0
+		padding: 0
 		display: flex
 		flex-direction: column
 		justify-content: center
 		align-items: center
-		margin: 0
-		padding: 0
+		text-align: center
 		max-width: 276px
 		min-height: 180px
 		background-color: $fourth-color
@@ -278,23 +291,23 @@ button
 		position: relative
 	&__background
 		position: absolute
+		z-index: 1
+		left: 30%
 		display: inline-block
 		width: 36%
 		min-height: 482px
 		background: $fourth-color
-		z-index: 1
-		left: 30%
 	&__body
-		max-width: 1100px
-		min-height: 520px
 		margin: 0
 		padding: 0
+		position: relative
+		z-index: 1000
 		display: flex
 		flex-direction: row
 		justify-content: space-between
 		align-items: center
-		position: relative
-		z-index: 1000
+		max-width: 1100px
+		min-height: 520px
 	&__header
 		margin: 0
 		padding: 0
@@ -307,18 +320,18 @@ button
 	&__content
 		position: relative
 		display: flex
-		max-width: 665px
 		justify-content: flex-end
 		flex-wrap: wrap
 		gap: 1px
+		max-width: 665px
 	&__item
-		width: 200px
+		padding: auto
 		display: flex
 		flex-direction: column
-		min-height: 160px
-		text-align: center
 		justify-content: center
-		padding: auto
+		text-align: center
+		width: 200px
+		min-height: 160px
 		color: $third-color
 		background-color: $standard-color
 	&__img
@@ -328,10 +341,10 @@ button
 		background-repeat: no-repeat
 		background-position: -300px 0
 	&__number
-		font-family: 'Roboto Bold'
+		text-align: center
+		font-family: "Roboto Bold", "Arial", sans-serif
 		font-size: 64px
 		line-height: 75px
-		text-align: center
 		letter-spacing: 0.05em
 	&__subtitle
 		font-size: 18px
@@ -352,15 +365,17 @@ button
 		flex-wrap: wrap
 		gap: 30px	
 	&__item
+		display: flex
+		flex-direction: column
 		max-width: 100%
 		width: auto
 		min-width: 200px
-		display: flex
-		flex-direction: column
 	&__address
 		font-style: normal
 	&__mail
 		color: #000
+	& .logo
+		fill: #000
 /* Media */
 @media screen and (max-width: 1600px)
 @media screen and (max-width: 992px)
@@ -382,9 +397,9 @@ button
 		&__background
 			display: none
 		&__slider
-			min-height: 1000px
 			flex-direction: column
 			text-align: center
+			min-height: 1000px
 		&__pagination
 			align-items: flex-start
 			flex-direction: row-reverse
